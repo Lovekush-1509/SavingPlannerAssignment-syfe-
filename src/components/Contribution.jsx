@@ -32,3 +32,5 @@ export default function ContributionModal({ goal, setGoals, onClose }) {
     </div>
   );
 }
+
+// 
