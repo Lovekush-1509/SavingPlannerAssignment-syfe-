@@ -1,18 +1,78 @@
-# React + Vite
+# Goal-Based Savings Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A client-side **Goal-Based Savings Planner** built using **React.js (Vite)**.  
+The application allows users to create financial goals, track savings progress, and view real-time currency conversion between **INR and USD**.
 
-Currently, two official plugins are available:
+This project was developed as part of the **Syfe Frontend Intern Take-Home Assignment**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+##  Live Demo
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+ Live URL: https://saving-planner-assignment-syfe.vercel.app/
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js (Vite)
+- JavaScript
+- Tailwind CSS
+- Exchange Rate API (INR ↔ USD)
+- Client-side state management
+
+---
+
+##  Features
+
+### Goal Creation
+- Add multiple savings goals
+- Input goal name, target amount, and currency (INR or USD)
+
+### Goal Display
+- View goals as cards
+- Shows:
+  - Goal name
+  - Target amount (original currency)
+  - Converted target amount
+  - Saved amount
+  - Progress bar
+
+### Contributions
+- Add contributions via modal
+- Input contribution amount and date
+- Progress updates automatically
+
+### Live Exchange Rate
+- Fetches real-time INR ↔ USD exchange rates
+- Displays last updated time
+- Manual refresh option
+
+### Dashboard Summary
+- Total target amount (normalized to USD)
+- Total saved amount (normalized to USD)
+- Overall progress percentage
+
+### UX & Validation
+- Input validation (no negative values, required fields)
+- Loading and error handling for API requests
+- Responsive layout
+- Smooth progress animations
+
+---
+
+##  Setup Instructions
+
+
+```bash
+# Clone the repository
+git clone https://github.com/Lovekush-1509/SavingPlannerAssignment-syfe-.git
+
+# Navigate into the project folder
+cd SavingPlannerAssignment-syfe-
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
