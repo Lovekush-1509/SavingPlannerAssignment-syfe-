@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ContributionModal from "./Contribution";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "./progressBar";
 import { convertCurrency } from "../utils.js/ConvertCurrency";
 import { FaDollarSign } from "react-icons/fa6";
 import { LiaRupeeSignSolid } from "react-icons/lia";
