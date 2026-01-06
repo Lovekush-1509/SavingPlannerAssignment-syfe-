@@ -39,7 +39,7 @@ export default function Dashboard({lastUpdated, refreshRate,rate, goals }) {
         <div className="w-full flex flex-col md:flex-row gap-6 md:justify-between text-sm">
           <div>
             <p className="flex flex-row items-center text-gray-300"><IoDiscOutline/>Total Target</p>
-            <p className="flex flex-row items-center text-xl"><LiaRupeeSignSolid/>{totalTarget*rate}</p>
+            <p className="flex flex-row items-center text-xl"><LiaRupeeSignSolid/>{(totalTarget*rate).toFixed(1)}</p>
             <p className="flex flex-row items-center text-gray-300"><FaDollarSign/>{totalTarget.toFixed(1)}</p>
           </div>
           <div>
