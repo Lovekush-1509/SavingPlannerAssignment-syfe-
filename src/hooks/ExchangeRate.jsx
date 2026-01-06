@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+// hook for api fetching
+
 export const useExchangeRate = () => {
   const [rate, setRate] = useState(null);
   const [lastUpdated, setLastUpdated] = useState("");
