@@ -6,6 +6,7 @@ import { FaDollarSign } from "react-icons/fa6";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 
 export default function GoalCard({ goal, setGoals, rate }) {
+  console.log("gaol",goal)
   const [open, setOpen] = useState(false);
 
   const progress = (goal.savedAmount / goal.targetAmount) * 100;
@@ -18,8 +19,8 @@ export default function GoalCard({ goal, setGoals, rate }) {
         <h3 className="font-bold text-xl">{goal.name}</h3>
         <p className="max-w-fit max-h-fit p-[2px] text-xs bg-gray-300 rounded-lg">{progress.toFixed(0)}%</p>
       </div>
-      <p className="flex flex-row items-center gap-0 font-bold text-2xl text-blue-400"><FaDollarSign/>{goal.targetAmount} </p>
-      {rate && <p className="text-xs text-gray-500 flex flex-row items-center"><LiaRupeeSignSolid/>{converted.toFixed(0)}</p>}
+      <p className="flex flex-row items-center gap-0 font-bold text-2xl text-blue-400"><FaDollarSign/>{goal.currency == "USD"?goal.targetAmount:converted.toFixed(0)} </p>
+      {rate && <p className="text-xs text-gray-500 flex flex-row items-center"><LiaRupeeSignSolid/>{goal.currency == "USD"?converted.toFixed(0):goal.targetAmount}</p>}
       <div>
         <div className="flex flex-row justify-between text-sm font-medium text-gray-400">
           <p>Progress</p>
