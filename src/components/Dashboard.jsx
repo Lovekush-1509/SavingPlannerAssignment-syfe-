@@ -5,25 +5,35 @@ import { AiOutlineStock } from "react-icons/ai";
 import { BiRefresh } from "react-icons/bi";
 import { FaDollarSign } from "react-icons/fa6";
 import { LiaRupeeSignSolid } from "react-icons/lia";
+import { useState,useEffect } from "react";
 
 
 export default function Dashboard({lastUpdated, refreshRate,rate, goals }) {
-    const totalTarget = goals.reduce((sum, goal) => {
-                                    if (goal.currency === "USD") {
-                                      return sum + goal.targetAmount;
-                                    } else {
-                                      return sum + goal.targetAmount / rate;
-                                    }
-                                  }, 0);
-    const totalSaved = goals.reduce((sum, goal) => {
-                                if (goal.currency === "USD") {
-                                  return sum + goal.savedAmount;
-                                } else {
-                                  return sum + goal.savedAmount / rate;
-                                }
-                              }, 0);
+    const [totalTarget, setTotalTarget] = useState(0);
+  const [totalSaved, setTotalSaved] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-    const progress = totalTarget ? (totalSaved / totalTarget) * 100 >= 100?100:(totalSaved / totalTarget) : 0;
+  useEffect(() => {
+    const calculatedTotalTarget = goals.reduce((sum, goal) => {
+      return goal.currency === "USD"
+        ? sum + goal.targetAmount
+        : sum + goal.targetAmount / rate;
+    }, 0);
+
+    const calculatedTotalSaved = goals.reduce((sum, goal) => {
+      return goal.currency === "USD"
+        ? sum + goal.savedAmount
+        : sum + goal.savedAmount / rate;
+    }, 0);
+
+    const calculatedProgress = calculatedTotalTarget
+      ? Math.min((calculatedTotalSaved / calculatedTotalTarget) * 100, 100)
+      : 0;
+
+    setTotalTarget(calculatedTotalTarget);
+    setTotalSaved(calculatedTotalSaved);
+    setProgress(calculatedProgress);
+  }, [goals, rate]);
   
     return (
       <div className= " text-white w-full bg-blue-500 flex flex-col py-6 px-3 gap-6 rounded">
