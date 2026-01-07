@@ -23,7 +23,7 @@ export default function Dashboard({lastUpdated, refreshRate,rate, goals }) {
                                 }
                               }, 0);
 
-    const progress = totalTarget ? (totalSaved / totalTarget) * 100 : 0;
+    const progress = totalTarget ? (totalSaved / totalTarget) * 100 >= 100?100:(totalSaved / totalTarget) : 0;
   
     return (
       <div className= " text-white w-full bg-blue-500 flex flex-col py-6 px-3 gap-6 rounded">
