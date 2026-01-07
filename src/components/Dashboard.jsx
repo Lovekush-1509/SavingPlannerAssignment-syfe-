@@ -44,8 +44,8 @@ export default function Dashboard({lastUpdated, refreshRate,rate, goals }) {
           </div>
           <div>
               <p className="flex flex-row items-center text-gray-300"><CiWallet/>Total Saved</p>
-              <p className="flex flex-row items-center text-xl"><LiaRupeeSignSolid/>{totalSaved*rate}</p>
-              <p className="flex flex-row items-center text-gray-300"><FaDollarSign/>{totalSaved}</p>
+              <p className="flex flex-row items-center text-xl"><LiaRupeeSignSolid/>{(totalSaved*rate).toFixed(1)}</p>
+              <p className="flex flex-row items-center text-gray-300"><FaDollarSign/>{totalSaved.toFixed(1)}</p>
           </div>
           <div>
               <p className="flex flex-row items-center text-gray-300"><GiProgression/>Overall Progress</p>
