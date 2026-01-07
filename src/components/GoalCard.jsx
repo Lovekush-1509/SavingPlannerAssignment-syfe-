@@ -9,11 +9,15 @@ export default function GoalCard({ goal, setGoals, rate }) {
   console.log("gaol",goal)
   const [open, setOpen] = useState(false);
 
-  const progress = (goal.savedAmount / goal.targetAmount) * 100 >= 100?100:(goal.savedAmount / goal.targetAmount) * 100;
+  const progress = (goal.savedAmount / goal.targetAmount) * 100;
 
 
   const converted =
     rate && convertCurrency(goal.targetAmount, goal.currency, rate);
+
+    const convertedSaved = convertCurrency(goal.savedAmount,goal.currency,rate);
+
+    
 
   return (
     <div className="border p-4 rounded justify-start shadow-gray-300 shadow-xl">
@@ -26,7 +30,7 @@ export default function GoalCard({ goal, setGoals, rate }) {
       <div>
         <div className="flex flex-row justify-between text-sm font-medium text-gray-400">
           <p>Progress</p>
-          <p className="flex flex-row items-center"><FaDollarSign/>{goal.currency === "USD"?goal.savedAmount:converted.toFixed(0)} saved</p>
+          <p className="flex flex-row items-center"><FaDollarSign/>{goal.currency === "USD"?goal.savedAmount:convertedSaved.toFixed(0)} saved</p>
         </div>
         <ProgressBar value={progress} />
       </div>
